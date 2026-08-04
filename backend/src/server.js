@@ -1,7 +1,9 @@
 import express from "express";
 import cors from "cors";
 import {clerkMiddleware} from "@clerk/express";
+
 import userRoutes from "./routes/user.route.js";
+import postRoutes from "./routes/post.route.js";
 
 import { ENV } from "./config/env.js";
 import { connectDB } from "./config/db.js";
@@ -17,6 +19,12 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
+
+app.use((err, req, res) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Something went wrong!" });
+});
 
 const startServer = async () => {
   await connectDB();
