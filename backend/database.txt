@@ -1,7 +1,0 @@
-Username
-faysaal70_db_user
-
-Password
-OlXY2JUADix77epH
-
-mongodb+srv://faysaal70_db_user:<db_password>@cluster0.0bo1rxn.mongodb.net/?appName=Cluster0
